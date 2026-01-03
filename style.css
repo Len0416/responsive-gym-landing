@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Fira+Code:wght@300..700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --LogoFont: "Bruno Ace SC", sans-serif;
+    --SecondaryFont: "Fira Code", monospace;
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #FAFF00;
+    --CardColor: #222222;
+    --BackgroundColor: #000000;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: var(--BackgroundColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    background-image: radial-gradient(circle at left center, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('Images/ImagenPortada.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* mantiene el fondo fijo al hacer scroll */
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.utp, header {
+    position: relative;
+    z-index: 1; /* asegura que el contenido quede encima */
+}
+
+h1, h2, h3, p, a {
+    font-family: var(--SecondaryFont);
+    color: var(--PrimaryColor);
+}
+
+#Logo, #Logo2{
+    font-family: var(--LogoFont);
+}
+
+#Logo2 {
+    color: var(--SecondaryColor);
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#menu {
+    display: flex;
+    gap: 60px;
+    list-style: none;
+    justify-content: space-around;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.utp {
+    height: 80vh;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    z-index: 1;
+}
+
+.utp h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--PrimaryColor);
+}
+
+
+.btn {
+    max-width: 200px;
+    background-color: var(--SecondaryColor);
+    border-radius: 50px;
+    border: 0;
+    padding: 10px 25px;
+    cursor: pointer;
+    text-align: center;
+    font-family: var(--SecondaryFont);
+    font-weight: 400;
+    color: var(--BackgroundColor);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--PrimaryColor);
+    color: var(--BackgroundColor);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 344px) {
+    header {
+        flex-direction: column;
+    }
+    #menu {
+        gap: 15px;
+    }
+
+    a {
+        font-size: smaller;
+    }
+}
+@media screen and (min-width: 345px) and (max-width: 715px) {
+    header {
+        flex-direction: column;
+    }
+    #menu {
+        gap: 15px;
+    }
+}
