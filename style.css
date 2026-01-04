@@ -23,7 +23,7 @@ html, body {
 }
 
 #app {
-    min-height: 200vh;
+    min-height: 300vh;
     width: 100%;
     background-color: var(--BackgroundColor);
     display: flex;
@@ -119,11 +119,11 @@ a {
     background-color: var(--SecondaryColor);
     border-radius: 50px;
     border: 0;
-    padding: 10px 25px;
+    padding: 10px 35px;
     cursor: pointer;
     text-align: center;
     font-family: var(--SecondaryFont);
-    font-weight: 400;
+    font-weight: bold;
     color: var(--BackgroundColor);
     transition: background-color 0.3s ease, color 0.3s ease;
 
@@ -159,6 +159,8 @@ a {
 }
 
 #advantagesList .adv {
+    display: flex;
+    align-items: center;
     padding: 20px;
     border-radius: 10px;
     max-width: 500px;
@@ -168,6 +170,51 @@ a {
     width: 60px;
     height: 60px;
     margin-bottom: 15px;
+}
+
+#Membership {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: var(--BackgroundColor);
+}
+
+#PasesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+    gap: 40px;
+}
+
+.Pass {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    min-width: 280px;
+    min-height: 375px;
+    padding: 0px 10px 0px 30px;
+    border-radius: 10px;
+    background-color: var(--CardColor);
+}
+
+.passDetails {
+    border-top: #000000;
+    max-width: 220px;
+}
+.listDetails {
+    text-align: center;
+    color: var(--PrimaryColor);
+    list-style: url(/Images/icons/IconCheck.png);
+}
+
+.price {
+    font-weight: bold;
+    font-size: larger;
 }
 
 @keyframes fadeInUp {
