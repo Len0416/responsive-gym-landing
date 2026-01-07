@@ -21,6 +21,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow: visible !important;
 }
 
 #app {
@@ -204,13 +205,20 @@ a:hover {
     background-color: var(--BackgroundColor);
 }
 
+#MembershipPasses {
+    width: 100%;
+    max-width: 1000px;
+    overflow: visible; /* ← sin scroll horizontal ni vertical */
+}
+
 #PasesList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1000px;
     gap: 20px;
+    max-width: 1000px;
 }
+
 
 .Pass {
     display: flex;
@@ -218,7 +226,7 @@ a:hover {
     align-items: center;
     flex-direction: column;
     min-width: 225px;
-    min-height: 275px;
+    min-height: 300px;
     border-radius: 10px;
     background-color: var(--CardColor);
 
@@ -289,44 +297,94 @@ a:hover {
         width: 30px;
         height: 30px;
     }
+
+    #MembershipPasses {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: auto;      /* se mantiene el carrusel horizontal */
+        overflow-y: hidden;    /* ← ANULA el scroll vertical interno */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #PasesList {
+        display: flex;
+        gap: 20px;
+        flex-wrap: nowrap;
+        /* max-height: 300px;  ← QUITAR esta línea */
+        max-height: none;      /* ← evita recortes verticales */
+        width: max-content;    /* carrusel se expande a todo su contenido */
+    }
+
+    .Pass {
+        min-width: 225px;
+        flex: 0 0 auto;
+        /* height: auto;       ← opcional para evitar sobrealtura forzada */
+    }
+
+    .passHeader,
+    .passDetails {
+        width: 100%;           /* evita desbordes con el ancho fijo de 300px */
+        height: auto;          /* asegura que no sumen altura extra */
+    }
 }
-@media screen and (min-width: 345px) and (max-width: 715px) {
+@media screen and (max-width: 715px) {
     header {
         flex-direction: column;
     }
+
     #menu {
         gap: 15px;
     }
+
     #advantagesList {
         gap: 5px;
         max-width: 350px;
         text-align: center;
     }
+
     #advantagesList .adv p {
         font-size: smaller;
     }
+
     #advantagesList .adv img {
         width: 30px;
         height: 30px;
         margin-bottom: 10px;
     }
-    #MembershipPasses {
-        width: 100%;
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-    #PasesList {
-        display: flex;
-        gap: 20px;
-        flex-wrap: nowrap;
-        max-height: 300px;
-        overflow-x: auto;
+
+    #MembershipPasses { 
+        width: 100%; 
+        max-width: 100vw; 
+        overflow-x: auto; /* carrusel horizontal visible */ 
+        overflow-y: hidden; /* ← AQUÍ TAMBIÉN, para el rango 345–715px */ 
+        -webkit-overflow-scrolling: touch; 
+        overscroll-behavior: contain; /* evita rebotes que provocan scroll extra */ 
+    } 
+    #PasesList { 
+        display: flex; 
+        flex-wrap: nowrap; 
+        gap: 20px; 
+        width: max-content; 
+        max-width: none; 
+        max-height: none; 
+    } 
+    .Pass { 
+        flex: 0 0 auto; 
+        min-width: 250px; 
+    } 
+    .passHeader, .passDetails { 
+        width: 100%; 
+        height: auto;
     }
 }
+
 @media screen and (min-width: 1023px) {
     #advantagesList {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+    }
+    .Pass {
+        height: 375px;
     }
 }
